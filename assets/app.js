@@ -44,7 +44,13 @@
     try {
       const raw = JSON.parse(localStorage.getItem(STORE_KEY));
       if (!raw || typeof raw !== 'object') return empty;
-      return { ...empty, ...raw, opts: { ...empty.opts, ...(raw.opts || {}) } };
+      const state = { ...empty, ...raw, opts: { ...empty.opts, ...(raw.opts || {}) } };
+      // Progress saved before "met" existed: a word already served had been
+      // looked at, so carry it over rather than reporting the count as zero.
+      for (const s of Object.values(state.cards)) {
+        if (s.met === undefined) s.met = !!s.seen;
+      }
+      return state;
     } catch {
       return empty;
     }
