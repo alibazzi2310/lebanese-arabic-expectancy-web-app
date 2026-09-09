@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "meta": {
+    "title": "Lebanese Arabic Expectancy List",
+    "description": "The 1000 most frequent words in spoken Lebanese Arabic, ordered for acquisition rather than raw frequency.",
+    "dialect": "Lebanese (Levantine)",
+    "script": "Arabic with harakat (vowel marks) — no transliteration by design",
+    "total_planned": 1000,
+    "count": 10,
+    "updated": "2026-09-09"
+  },
+  "units": [
+    { "id": 1, "name": "Getting a sentence off the ground", "range": [1, 10] }
+  ],
+  "words": [
+    {
+      "id": 1,
+      "rank": 1,
+      "unit": 1,
+      "ar": "أَنا",
+      "en": "I / me",
+      "pos": "pronoun",
+      "tags": ["pronoun", "core"],
+      "note": "Lebanese drops the verb 'to be' in the present. أَنا لُبْناني is a complete sentence.",
+      "msa": "أَنا",
+      "example": { "ar": "أَنا مِن لُبْنان.", "en": "I'm from Lebanon." }
+    },
+    {
+      "id": 2,
+      "rank": 2,
+      "unit": 1,
+      "ar": "إِنْتَ / إِنْتِ",
+      "en": "you (m / f)",
+      "pos": "pronoun",
+      "tags": ["pronoun", "core"],
+      "note": "إِنْتَ to a man, إِنْتِ to a woman. The plural for any group is إِنْتو.",
+      "msa": "أَنْتَ / أَنْتِ",
+      "example": { "ar": "إِنْتَ مِنْ وين؟", "en": "Where are you from?" }
+    },
+    {
+      "id": 3,
+      "rank": 3,
+      "unit": 1,
+      "ar": "هَيْدا / هَيْدي",
+      "en": "this (m / f)",
+      "pos": "demonstrative",
+      "tags": ["pointing", "core"],
+      "note": "Points at things in front of you. The MSA هٰذا is understood but sounds formal in conversation.",
+      "msa": "هٰذا / هٰذِهِ",
+      "example": { "ar": "هَيْدا بَيْتي.", "en": "This is my house." }
+    },
+    {
+      "id": 4,
+      "rank": 4,
+      "unit": 1,
+      "ar": "شو",
+      "en": "what",
+      "pos": "question word",
+      "tags": ["question", "core"],
+      "note": "The single most useful question word. Usually goes first: شو صار؟ — What happened?",
+      "msa": "ماذا",
+      "example": { "ar": "شو بَدَّك؟", "en": "What do you want?" }
+    },
+    {
+      "id": 5,
+      "rank": 5,
+      "unit": 1,
+      "ar": "بَدّي",
+      "en": "I want",
+      "pos": "verb-like",
+      "tags": ["verb", "core", "high-yield"],
+      "note": "Not a real verb — it takes possessive endings: بَدّي, بَدَّك, بَدُّه, بَدْنا. Add a verb after it for 'I want to…'.",
+      "msa": "أُريد",
+      "example": { "ar": "بَدّي مَي.", "en": "I want water." }
+    },
+    {
+      "id": 6,
+      "rank": 6,
+      "unit": 1,
+      "ar": "في",
+      "en": "there is / there are",
+      "pos": "existential",
+      "tags": ["core", "high-yield"],
+      "note": "Negate it with ما: ما في — 'there isn't'. Also the everyday way to say 'no' to availability.",
+      "msa": "هُناكَ",
+      "example": { "ar": "في مَي بِالبَيْت؟", "en": "Is there water at home?" }
+    },
+    {
+      "id": 7,
+      "rank": 7,
+      "unit": 1,
+      "ar": "كْتير",
+      "en": "a lot / very",
+      "pos": "adverb",
+      "tags": ["intensifier", "core"],
+      "note": "Goes after what it modifies: مْنيح كْتير — 'very good'.",
+      "msa": "كَثيراً / جِدّاً",
+      "example": { "ar": "شُكْراً كْتير.", "en": "Thanks a lot." }
+    },
+    {
+      "id": 8,
+      "rank": 8,
+      "unit": 1,
+      "ar": "مْنيح",
+      "en": "good / fine",
+      "pos": "adjective",
+      "tags": ["adjective", "core"],
+      "note": "Feminine مْنيحة. The standard answer to كيفَك؟ is مْنيح، شُكْراً.",
+      "msa": "جَيِّد",
+      "example": { "ar": "الأَكِل مْنيح.", "en": "The food is good." }
+    },
+    {
+      "id": 9,
+      "rank": 9,
+      "unit": 1,
+      "ar": "بَعْرِف",
+      "en": "I know",
+      "pos": "verb",
+      "tags": ["verb", "core"],
+      "note": "The بـ prefix marks an ordinary present tense. Negate with ما: ما بَعْرِف — 'I don't know'.",
+      "msa": "أَعْرِف",
+      "example": { "ar": "ما بَعْرِف شو صار.", "en": "I don't know what happened." }
+    },
+    {
+      "id": 10,
+      "rank": 10,
+      "unit": 1,
+      "ar": "هَلَّق",
+      "en": "now",
+      "pos": "adverb",
+      "tags": ["time", "core"],
+      "note": "The signature Lebanese word for 'now'. هَلَّق بَرْجَع — 'I'll be right back'.",
+      "msa": "الآن",
+      "example": { "ar": "هَلَّق بَرْجَع.", "en": "I'll be right back." }
+    }
+  ]
+}
