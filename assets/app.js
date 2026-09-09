@@ -10,10 +10,10 @@
 
   /* Cards to wait before a word comes back, indexed by level.
      Level rises on "Got it", resets to 0 on "Again". */
-  const INTERVALS = [3, 8, 20, 45, 100, 220];
-  const LEARNED_LEVEL = 3;
+  const INTERVALS = [4, 12, 30, 70, 150, 300];
+  const LEARNED_LEVEL = 2;
   const BUFFER = 4;      // cards kept ahead of the one in view
-  const MAX_CARDS = 240; // session cap on DOM nodes
+  const MAX_CARDS = 400; // session cap on DOM nodes
 
   const el = {
     feed: document.getElementById('feed'),
@@ -23,8 +23,10 @@
     settingsBtn: document.getElementById('settingsBtn'),
     resetBtn: document.getElementById('resetBtn'),
     progressFill: document.getElementById('progressFill'),
+    progressSeen: document.getElementById('progressSeen'),
     countLearned: document.getElementById('countLearned'),
     countTotal: document.getElementById('countTotal'),
+    countSeen: document.getElementById('countSeen'),
     optHarakat: document.getElementById('optHarakat'),
     optEnFirst: document.getElementById('optEnFirst')
   };
@@ -53,7 +55,7 @@
   }
 
   function cardState(id) {
-    if (!store.cards[id]) store.cards[id] = { level: 0, dueAt: 0, lapses: 0, seen: false };
+    if (!store.cards[id]) store.cards[id] = { level: 0, dueAt: 0, lapses: 0, seen: false, met: false };
     return store.cards[id];
   }
 
@@ -73,25 +75,30 @@
 
   function pickNext() {
     const busy = inFlight();
-    const due = [];
-    let firstNew = null;
-
-    for (const w of words) {
-      if (busy.has(w.id)) continue;
+    const avail = words.filter(w => !busy.has(w.id));
+    const unseen = avail.filter(w => !store.cards[w.id] || !store.cards[w.id].seen);
+    const due = avail.filter(w => {
       const s = store.cards[w.id];
-      if (!s || !s.seen) { if (firstNew === null) firstNew = w; continue; }
-      if (s.dueAt <= store.counter) due.push(w);
-    }
+      return s && s.seen && s.dueAt <= store.counter;
+    });
 
-    if (due.length) {
-      due.sort((a, b) => store.cards[a.id].dueAt - store.cards[b.id].dueAt);
-      return due[0];
-    }
-    if (firstNew) return firstNew;
+    // Among reviews, a word you just failed gets first claim on the slot —
+    // that is the whole point of pressing Again.
+    due.sort((a, b) => {
+      const sa = store.cards[a.id], sb = store.cards[b.id];
+      if ((sa.level === 0) !== (sb.level === 0)) return sa.level === 0 ? -1 : 1;
+      return sa.dueAt - sb.dueAt;
+    });
 
-    // Everything is ahead of schedule: pull the nearest review forward.
-    const rest = words.filter(w => !busy.has(w.id));
-    rest.sort((a, b) => store.cards[a.id].dueAt - store.cards[b.id].dueAt);
+    // Alternate new words and reviews. Without this, reviews always win the
+    // slot and the list stops moving forward a few words in.
+    const reviewSlot = store.counter % 2 === 1;
+    if (unseen.length && !(reviewSlot && due.length)) return unseen[0];
+    if (due.length) return due[0];
+    if (unseen.length) return unseen[0];
+
+    // Nothing new and nothing due: pull the nearest review forward.
+    const rest = avail.slice().sort((a, b) => store.cards[a.id].dueAt - store.cards[b.id].dueAt);
     return rest[0] || null;
   }
 
@@ -113,10 +120,17 @@
   }
 
   function updateProgress() {
-    const learned = Object.values(store.cards).filter(s => s.seen && s.level >= LEARNED_LEVEL).length;
+    const cards = Object.values(store.cards);
+    const seen = cards.filter(s => s.met).length;
+    const learned = cards.filter(s => s.met && s.level >= LEARNED_LEVEL).length;
+    const total = words.length || 1;
     el.countLearned.textContent = learned;
     el.countTotal.textContent = words.length;
-    el.progressFill.style.width = words.length ? (learned / words.length * 100) + '%' : '0%';
+    el.countSeen.textContent = seen ? '· ' + seen + ' met' : '';
+    // Two fills: every word you meet moves the dim one, so the bar responds
+    // from the first card rather than only once something is mastered.
+    el.progressSeen.style.width = (seen / total * 100) + '%';
+    el.progressFill.style.width = (learned / total * 100) + '%';
   }
 
   /* ---------- text helpers ---------- */
@@ -184,6 +198,9 @@
     const reveal = () => {
       if (node.classList.contains('revealed')) return;
       node.classList.add('revealed');
+      cardState(w.id).met = true;
+      save();
+      updateProgress();
       node.querySelector('.answer').setAttribute('aria-hidden', 'false');
       node.querySelector('.actions').setAttribute('aria-hidden', 'false');
       dismissHint();

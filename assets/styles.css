@@ -42,17 +42,22 @@ html, body {
   justify-content: space-between;
   padding: 10px 16px 22px;
 }
-.progress { height: 2px; background: var(--line); }
-.progress-fill {
+.progress { position: relative; height: 2px; background: var(--line); }
+.progress-seen, .progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 0;
-  background: var(--accent);
   transition: width .35s ease;
 }
+.progress-seen { background: var(--accent-dim); }
+.progress-fill { background: var(--accent); }
 .counts { font-size: 13px; letter-spacing: .01em; pointer-events: none; }
 .count { color: var(--accent); font-weight: 600; font-variant-numeric: tabular-nums; }
 .count-sep, .count-total { color: var(--ink-faint); font-variant-numeric: tabular-nums; }
 .count-label { color: var(--ink-faint); margin-left: 6px; }
+.count-seen { color: var(--ink-faint); margin-left: 8px; }
 .icon-btn {
   pointer-events: auto;
   background: none;

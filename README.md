@@ -21,10 +21,15 @@ scrolling, tap to reveal. Underneath it is not a playlist but a scheduler.
   frequency adjusted for teachability — pronouns and the sentence frames that
   hold them come before nouns you can only use in one context. By word 10 you
   can build a sentence; the ten units each add one thing you can newly do.
-- **Answering steers the feed.** *Again* puts the word back about 3 cards
-  later; *Got it* moves it 8, 20, 45, 100, 220 cards out as it survives more
+- **Answering steers the feed.** *Again* puts the word back about 4 cards
+  later; *Got it* moves it 12, 30, 70, 150, 300 cards out as it survives more
   reps. The feed is infinite because reviews are woven into it, so a session
   is a mix of new words and the ones you keep dropping.
+- **New words and reviews alternate.** Reviews do not get to win every slot.
+  Left to compete freely they starve new material within a dozen cards — you
+  answer word 1 correctly and meet it again before you have met word 9. Odd
+  slots go to reviews (a word you just failed picks first), even slots to the
+  next unseen word, so roughly half of any session is new ground.
 - **Intervals are counted in cards, not days.** A drill you open for four
   minutes on a bus should schedule itself in cards seen. Calendar-based
   spacing can come later without changing the interaction.
@@ -37,6 +42,12 @@ scrolling, tap to reveal. Underneath it is not a playlist but a scheduler.
   Words whose written form lies about their Lebanese pronunciation (قَدِّيش,
   قَهْوِة, وَقِت — the ق is a catch in the throat) carry a short pronunciation
   note instead.
+
+The counter reads **learned** and **met**: met rises the first time you reveal
+a word, learned once you have answered it correctly twice running. The bar
+carries both — a dim fill for met, a bright one for learned — so it responds
+from the very first card instead of sitting at zero until something is
+mastered.
 
 Progress lives in `localStorage` under `leb-expectancy-v2` — nothing leaves
 the browser, and there is no account.

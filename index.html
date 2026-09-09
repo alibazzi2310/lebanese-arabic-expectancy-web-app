@@ -14,11 +14,15 @@
 <body>
 
 <header class="topbar">
-  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress">
+    <div class="progress-seen" id="progressSeen"></div>
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
   <div class="topbar-row">
     <div class="counts">
       <span class="count" id="countLearned">0</span><span class="count-sep">/</span><span class="count-total" id="countTotal">0</span>
       <span class="count-label">learned</span>
+      <span class="count-seen" id="countSeen"></span>
     </div>
     <button class="icon-btn" id="settingsBtn" aria-label="Settings" aria-expanded="false">⚙</button>
   </div>
