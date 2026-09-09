@@ -4,7 +4,8 @@
 (() => {
   'use strict';
 
-  const STORE_KEY = 'leb-expectancy-v1';
+  // Bump when word ids change meaning — old progress would schedule the wrong cards.
+  const STORE_KEY = 'leb-expectancy-v2';
   const HARAKAT = /[ؐ-ًؚ-ٰٟۖ-ۭ]/g;
 
   /* Cards to wait before a word comes back, indexed by level.
@@ -25,8 +26,7 @@
     countLearned: document.getElementById('countLearned'),
     countTotal: document.getElementById('countTotal'),
     optHarakat: document.getElementById('optHarakat'),
-    optEnFirst: document.getElementById('optEnFirst'),
-    optAudio: document.getElementById('optAudio')
+    optEnFirst: document.getElementById('optEnFirst')
   };
 
   let words = [];
@@ -38,7 +38,7 @@
   /* ---------- persistence ---------- */
 
   function load() {
-    const empty = { counter: 0, cards: {}, opts: { harakat: true, enFirst: false, audio: true } };
+    const empty = { counter: 0, cards: {}, opts: { harakat: true, enFirst: false } };
     try {
       const raw = JSON.parse(localStorage.getItem(STORE_KEY));
       if (!raw || typeof raw !== 'object') return empty;
@@ -123,21 +123,6 @@
 
   const strip = t => (t || '').replace(HARAKAT, '');
   const shape = t => (store.opts.harakat ? t : strip(t));
-  const speakable = t => strip(t).split('/')[0].trim();
-
-  function speak(text) {
-    if (!store.opts.audio || !('speechSynthesis' in window)) return;
-    try {
-      const u = new SpeechSynthesisUtterance(speakable(text));
-      const voices = speechSynthesis.getVoices();
-      const v = voices.find(x => /^ar-LB/i.test(x.lang)) || voices.find(x => /^ar/i.test(x.lang));
-      if (v) u.voice = v;
-      u.lang = v ? v.lang : 'ar';
-      u.rate = 0.85;
-      speechSynthesis.cancel();
-      speechSynthesis.speak(u);
-    } catch { /* no voices installed */ }
-  }
 
   /* ---------- rendering ---------- */
 
@@ -174,7 +159,12 @@
 
     node.querySelector('.example-ar').textContent = shape(w.example.ar);
     node.querySelector('.example-en').textContent = w.example.en;
-    setMixedText(node.querySelector('.note'), shape(w.note));
+    const pron = node.querySelector('.pron');
+    pron.hidden = !w.pron;
+    if (w.pron) setMixedText(pron, shape(w.pron));
+    const note = node.querySelector('.note');
+    note.hidden = !w.note;
+    setMixedText(note, shape(w.note));
   }
 
   function buildCard(w) {
@@ -182,6 +172,12 @@
     node.dataset.id = w.id;
     node.querySelector('.rank').textContent = '#' + w.rank;
     node.querySelector('.pos').textContent = w.pos;
+    const form = node.querySelector('.form');
+    form.hidden = !w.form;
+    if (w.form) {
+      form.textContent = w.form === 'f' ? 'feminine' : 'masculine';
+      form.classList.add(w.form === 'f' ? 'is-f' : 'is-m');
+    }
     paint(node, w);
 
     const inner = node.querySelector('.card-inner');
@@ -190,7 +186,6 @@
       node.classList.add('revealed');
       node.querySelector('.answer').setAttribute('aria-hidden', 'false');
       node.querySelector('.actions').setAttribute('aria-hidden', 'false');
-      speak(w.ar);
       dismissHint();
     };
     node._reveal = reveal;
@@ -203,7 +198,6 @@
     node.querySelectorAll('[data-grade]').forEach(btn => {
       btn.addEventListener('click', () => answer(node, w, btn.dataset.grade));
     });
-    node.querySelector('[data-speak]').addEventListener('click', () => speak(w.ar));
 
     attachSwipe(node, inner, w, reveal);
     return node;
@@ -371,8 +365,6 @@
       byId = new Map(words.map(w => [w.id, w]));
       bindOpt(el.optHarakat, 'harakat', repaintAll);
       bindOpt(el.optEnFirst, 'enFirst', repaintAll);
-      bindOpt(el.optAudio, 'audio');
-      if ('speechSynthesis' in window) speechSynthesis.getVoices();
       start();
     })
     .catch(err => {

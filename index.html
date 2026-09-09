@@ -27,7 +27,6 @@
 <div class="panel" id="panel" hidden>
   <label class="opt"><input type="checkbox" id="optHarakat" checked><span>Show vowel marks (harakat)</span></label>
   <label class="opt"><input type="checkbox" id="optEnFirst"><span>English first (production practice)</span></label>
-  <label class="opt"><input type="checkbox" id="optAudio" checked><span>Speak the word on reveal</span></label>
   <button class="reset-btn" id="resetBtn">Reset all progress</button>
 </div>
 
@@ -42,7 +41,10 @@
     <div class="card-inner">
       <div class="card-meta">
         <span class="rank"></span>
-        <span class="pos"></span>
+        <span class="meta-right">
+          <span class="form" hidden></span>
+          <span class="pos"></span>
+        </span>
       </div>
 
       <div class="card-body">
@@ -53,6 +55,7 @@
 
         <div class="answer" aria-hidden="true">
           <div class="answer-main"></div>
+          <p class="pron" hidden></p>
           <div class="example">
             <div class="example-ar" dir="rtl" lang="ar"></div>
             <div class="example-en"></div>
@@ -65,9 +68,6 @@
 
       <div class="actions" aria-hidden="true">
         <button class="btn btn-again" data-grade="again">Again</button>
-        <button class="btn btn-speak" data-speak aria-label="Play pronunciation">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M4 9.5h3.2L12 5v14l-4.8-4.5H4z"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M15.8 9.2a4 4 0 0 1 0 5.6M18.4 6.6a7.6 7.6 0 0 1 0 10.8"/></svg>
-        </button>
         <button class="btn btn-good" data-grade="good">Got it</button>
       </div>
     </div>

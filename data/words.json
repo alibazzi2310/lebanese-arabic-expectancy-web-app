@@ -1,137 +1,1405 @@
 {
-  "schema": 1,
+  "schema": 2,
   "meta": {
     "title": "Lebanese Arabic Expectancy List",
-    "description": "The 1000 most frequent words in spoken Lebanese Arabic, ordered for acquisition rather than raw frequency.",
-    "dialect": "Lebanese (Levantine)",
-    "script": "Arabic with harakat (vowel marks) — no transliteration by design",
-    "total_planned": 1000,
-    "count": 10,
+    "description": "The 100 most useful words in spoken Lebanese Arabic, ordered for acquisition rather than raw frequency. Masculine and feminine forms are counted as separate words.",
+    "dialect": "Lebanese",
+    "script": "Fully vowelled Arabic — fatha, kasra, damma, sukun, shadda — so every word can be read aloud without transliteration.",
+    "total_planned": 100,
+    "count": 100,
     "updated": "2026-09-09"
   },
   "units": [
-    { "id": 1, "name": "Getting a sentence off the ground", "range": [1, 10] }
+    {
+      "id": 1,
+      "name": "You and me",
+      "range": [
+        1,
+        10
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Pointing and asking",
+      "range": [
+        11,
+        20
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Hello, yes, no",
+      "range": [
+        21,
+        30
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Having and wanting",
+      "range": [
+        31,
+        40
+      ]
+    },
+    {
+      "id": 5,
+      "name": "The first verbs",
+      "range": [
+        41,
+        52
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Eating, drinking, living",
+      "range": [
+        53,
+        62
+      ]
+    },
+    {
+      "id": 7,
+      "name": "People",
+      "range": [
+        63,
+        74
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Time",
+      "range": [
+        75,
+        86
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Describing things",
+      "range": [
+        87,
+        94
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Holding sentences together",
+      "range": [
+        95,
+        100
+      ]
+    }
   ],
   "words": [
     {
       "id": 1,
       "rank": 1,
       "unit": 1,
-      "ar": "أَنا",
+      "ar": "أَنَا",
       "en": "I / me",
       "pos": "pronoun",
-      "tags": ["pronoun", "core"],
-      "note": "Lebanese drops the verb 'to be' in the present. أَنا لُبْناني is a complete sentence.",
-      "msa": "أَنا",
-      "example": { "ar": "أَنا مِن لُبْنان.", "en": "I'm from Lebanon." }
+      "note": "Lebanese has no present-tense 'to be'. أَنَا لُبْنَانِي is already a complete sentence — nothing goes between the two words.",
+      "example": {
+        "ar": "أَنَا مِن لُبْنَان.",
+        "en": "I'm from Lebanon."
+      }
     },
     {
       "id": 2,
       "rank": 2,
       "unit": 1,
-      "ar": "إِنْتَ / إِنْتِ",
-      "en": "you (m / f)",
+      "form": "m",
+      "pair": 3,
+      "ar": "إِنْتَ",
+      "en": "you (speaking to a man)",
       "pos": "pronoun",
-      "tags": ["pronoun", "core"],
-      "note": "إِنْتَ to a man, إِنْتِ to a woman. The plural for any group is إِنْتو.",
-      "msa": "أَنْتَ / أَنْتِ",
-      "example": { "ar": "إِنْتَ مِنْ وين؟", "en": "Where are you from?" }
+      "note": "The fatha on the ت is the whole difference from the feminine. Lebanese often swallows it, but write it while you are learning.",
+      "example": {
+        "ar": "إِنْتَ مِن وَيْن؟",
+        "en": "Where are you from?"
+      }
     },
     {
       "id": 3,
       "rank": 3,
       "unit": 1,
-      "ar": "هَيْدا / هَيْدي",
-      "en": "this (m / f)",
-      "pos": "demonstrative",
-      "tags": ["pointing", "core"],
-      "note": "Points at things in front of you. The MSA هٰذا is understood but sounds formal in conversation.",
-      "msa": "هٰذا / هٰذِهِ",
-      "example": { "ar": "هَيْدا بَيْتي.", "en": "This is my house." }
+      "form": "f",
+      "pair": 2,
+      "ar": "إِنْتِ",
+      "en": "you (speaking to a woman)",
+      "pos": "pronoun",
+      "note": "Same word as the masculine with a kasra instead of a fatha. This kasra-for-fatha swap marks the feminine all through the language.",
+      "example": {
+        "ar": "إِنْتِ مِن وَيْن؟",
+        "en": "Where are you from?"
+      }
     },
     {
       "id": 4,
       "rank": 4,
       "unit": 1,
-      "ar": "شو",
-      "en": "what",
-      "pos": "question word",
-      "tags": ["question", "core"],
-      "note": "The single most useful question word. Usually goes first: شو صار؟ — What happened?",
-      "msa": "ماذا",
-      "example": { "ar": "شو بَدَّك؟", "en": "What do you want?" }
+      "ar": "هُوِّي",
+      "en": "he / it",
+      "pos": "pronoun",
+      "pron": "The shadda means you hold the و — two beats, not one.",
+      "example": {
+        "ar": "هُوِّي هَوْن.",
+        "en": "He's here."
+      }
     },
     {
       "id": 5,
       "rank": 5,
       "unit": 1,
-      "ar": "بَدّي",
-      "en": "I want",
-      "pos": "verb-like",
-      "tags": ["verb", "core", "high-yield"],
-      "note": "Not a real verb — it takes possessive endings: بَدّي, بَدَّك, بَدُّه, بَدْنا. Add a verb after it for 'I want to…'.",
-      "msa": "أُريد",
-      "example": { "ar": "بَدّي مَي.", "en": "I want water." }
+      "ar": "هِيِّي",
+      "en": "she / it",
+      "pos": "pronoun",
+      "note": "Lebanese uses هُوِّي and هِيِّي for objects too — every noun is either masculine or feminine.",
+      "example": {
+        "ar": "هِيِّي مْنِيحَة.",
+        "en": "She's doing well."
+      }
     },
     {
       "id": 6,
       "rank": 6,
       "unit": 1,
-      "ar": "في",
-      "en": "there is / there are",
-      "pos": "existential",
-      "tags": ["core", "high-yield"],
-      "note": "Negate it with ما: ما في — 'there isn't'. Also the everyday way to say 'no' to availability.",
-      "msa": "هُناكَ",
-      "example": { "ar": "في مَي بِالبَيْت؟", "en": "Is there water at home?" }
+      "ar": "نِحْنَا",
+      "en": "we",
+      "pos": "pronoun",
+      "example": {
+        "ar": "نِحْنَا مَعَك.",
+        "en": "We're with you."
+      }
     },
     {
       "id": 7,
       "rank": 7,
       "unit": 1,
-      "ar": "كْتير",
-      "en": "a lot / very",
-      "pos": "adverb",
-      "tags": ["intensifier", "core"],
-      "note": "Goes after what it modifies: مْنيح كْتير — 'very good'.",
-      "msa": "كَثيراً / جِدّاً",
-      "example": { "ar": "شُكْراً كْتير.", "en": "Thanks a lot." }
+      "ar": "إِنْتُو",
+      "en": "you (a group)",
+      "pos": "pronoun",
+      "note": "One plural for any group — men, women or mixed. The masculine/feminine split only exists in the singular.",
+      "example": {
+        "ar": "إِنْتُو وَيْن؟",
+        "en": "Where are you all?"
+      }
     },
     {
       "id": 8,
       "rank": 8,
       "unit": 1,
-      "ar": "مْنيح",
-      "en": "good / fine",
-      "pos": "adjective",
-      "tags": ["adjective", "core"],
-      "note": "Feminine مْنيحة. The standard answer to كيفَك؟ is مْنيح، شُكْراً.",
-      "msa": "جَيِّد",
-      "example": { "ar": "الأَكِل مْنيح.", "en": "The food is good." }
+      "ar": "هِنِّي",
+      "en": "they",
+      "pos": "pronoun",
+      "example": {
+        "ar": "هِنِّي بِالْبَيْت.",
+        "en": "They're at home."
+      }
     },
     {
       "id": 9,
       "rank": 9,
       "unit": 1,
-      "ar": "بَعْرِف",
-      "en": "I know",
-      "pos": "verb",
-      "tags": ["verb", "core"],
-      "note": "The بـ prefix marks an ordinary present tense. Negate with ما: ما بَعْرِف — 'I don't know'.",
-      "msa": "أَعْرِف",
-      "example": { "ar": "ما بَعْرِف شو صار.", "en": "I don't know what happened." }
+      "ar": "مِين",
+      "en": "who",
+      "pos": "question word",
+      "note": "Never changes shape. مِين هَيْدَا؟ points at a person the way شُو points at a thing.",
+      "example": {
+        "ar": "مِين هَيْدَا؟",
+        "en": "Who is this?"
+      }
     },
     {
       "id": 10,
       "rank": 10,
       "unit": 1,
+      "ar": "شُو",
+      "en": "what",
+      "pos": "question word",
+      "note": "The most useful word in the language. شُو هَيْدَا؟ will carry you through your first week in Beirut.",
+      "example": {
+        "ar": "شُو صَار؟",
+        "en": "What happened?"
+      }
+    },
+    {
+      "id": 11,
+      "rank": 11,
+      "unit": 2,
+      "form": "m",
+      "pair": 12,
+      "ar": "هَيْدَا",
+      "en": "this (masculine)",
+      "pos": "demonstrative",
+      "note": "Use it for a masculine thing or person. The MSA هٰذَا is understood but sounds like a newsreader.",
+      "example": {
+        "ar": "هَيْدَا بَيْتِي.",
+        "en": "This is my house."
+      }
+    },
+    {
+      "id": 12,
+      "rank": 12,
+      "unit": 2,
+      "form": "f",
+      "pair": 11,
+      "ar": "هَيْدِي",
+      "en": "this (feminine)",
+      "pos": "demonstrative",
+      "note": "For a feminine thing or person — most words ending in ة are feminine.",
+      "example": {
+        "ar": "هَيْدِي سَيَّارْتِي.",
+        "en": "This is my car."
+      }
+    },
+    {
+      "id": 13,
+      "rank": 13,
+      "unit": 2,
+      "ar": "هَوْن",
+      "en": "here",
+      "pos": "adverb",
+      "example": {
+        "ar": "تَعَا هَوْن.",
+        "en": "Come here."
+      }
+    },
+    {
+      "id": 14,
+      "rank": 14,
+      "unit": 2,
+      "ar": "هَوْنِيك",
+      "en": "there / over there",
+      "pos": "adverb",
+      "note": "هَوْن is where you are, هَوْنِيك is anywhere else.",
+      "example": {
+        "ar": "الْبَيْت هَوْنِيك.",
+        "en": "The house is over there."
+      }
+    },
+    {
+      "id": 15,
+      "rank": 15,
+      "unit": 2,
+      "ar": "وَيْن",
+      "en": "where",
+      "pos": "question word",
+      "note": "Usually first in the sentence: وَيْن رَايِح؟ — Where are you going?",
+      "example": {
+        "ar": "وَيْن الْبَيْت؟",
+        "en": "Where's the house?"
+      }
+    },
+    {
+      "id": 16,
+      "rank": 16,
+      "unit": 2,
+      "ar": "كِيف",
+      "en": "how",
+      "pos": "question word",
+      "example": {
+        "ar": "كِيف بِتْقُول هَيْدَا؟",
+        "en": "How do you say this?"
+      }
+    },
+    {
+      "id": 17,
+      "rank": 17,
+      "unit": 2,
+      "ar": "لَيْش",
+      "en": "why",
+      "pos": "question word",
+      "note": "Answer it with لَأَنّ — 'because'.",
+      "example": {
+        "ar": "لَيْش هَيْك؟",
+        "en": "Why like that?"
+      }
+    },
+    {
+      "id": 18,
+      "rank": 18,
+      "unit": 2,
+      "ar": "إِيمْتَا",
+      "en": "when",
+      "pos": "question word",
+      "example": {
+        "ar": "إِيمْتَا بْتِجِي؟",
+        "en": "When are you coming?"
+      }
+    },
+    {
+      "id": 19,
+      "rank": 19,
+      "unit": 2,
+      "ar": "قَدِّيش",
+      "en": "how much / how many",
+      "pos": "question word",
+      "pron": "In Lebanon the ق is a catch in the throat, not a k-sound. The same goes for قَهْوِة and وَقِت.",
+      "example": {
+        "ar": "قَدِّيش هَيْدَا؟",
+        "en": "How much is this?"
+      }
+    },
+    {
+      "id": 20,
+      "rank": 20,
+      "unit": 2,
+      "ar": "إِيه",
+      "en": "yes",
+      "pos": "particle",
+      "note": "The everyday yes. نَعَم exists but sounds formal — you'll hear it mostly on the phone.",
+      "example": {
+        "ar": "إِيه، أَكِيد.",
+        "en": "Yes, of course."
+      }
+    },
+    {
+      "id": 21,
+      "rank": 21,
+      "unit": 3,
+      "ar": "لَأ",
+      "en": "no",
+      "pos": "particle",
+      "example": {
+        "ar": "لَأ، شُكْراً.",
+        "en": "No, thank you."
+      }
+    },
+    {
+      "id": 22,
+      "rank": 22,
+      "unit": 3,
+      "ar": "مَا",
+      "en": "not",
+      "pos": "negation",
+      "note": "Put مَا in front of any verb to negate it: مَا بَعْرِف — 'I don't know'. It is the single most useful particle after شُو.",
+      "example": {
+        "ar": "مَا بَعْرِف.",
+        "en": "I don't know."
+      }
+    },
+    {
+      "id": 23,
+      "rank": 23,
+      "unit": 3,
+      "ar": "مَرْحَبَا",
+      "en": "hello",
+      "pos": "greeting",
+      "note": "Safe with anyone at any hour. The reply is often مَرْحَبْتَيْن — literally 'two hellos'.",
+      "example": {
+        "ar": "مَرْحَبَا، كِيفَك؟",
+        "en": "Hello, how are you?"
+      }
+    },
+    {
+      "id": 24,
+      "rank": 24,
+      "unit": 3,
+      "form": "m",
+      "pair": 25,
+      "ar": "كِيفَك",
+      "en": "how are you (to a man)",
+      "pos": "greeting",
+      "note": "كِيف plus the ending ـَك, 'you'. That same ـَك ending turns up on every word in the language.",
+      "example": {
+        "ar": "كِيفَك الْيَوْم؟",
+        "en": "How are you today?"
+      }
+    },
+    {
+      "id": 25,
+      "rank": 25,
+      "unit": 3,
+      "form": "f",
+      "pair": 24,
+      "ar": "كِيفِك",
+      "en": "how are you (to a woman)",
+      "pos": "greeting",
+      "note": "Fatha for a man, kasra for a woman — the same swap you saw in إِنْتَ and إِنْتِ.",
+      "example": {
+        "ar": "كِيفِك الْيَوْم؟",
+        "en": "How are you today?"
+      }
+    },
+    {
+      "id": 26,
+      "rank": 26,
+      "unit": 3,
+      "form": "m",
+      "pair": 27,
+      "ar": "مْنِيح",
+      "en": "good / fine (masculine)",
+      "pos": "adjective",
+      "note": "The standard answer to كِيفَك. A word starting with a sukun feels strange at first — begin on the م with no vowel and slide straight into نِيح.",
+      "example": {
+        "ar": "مْنِيح، شُكْراً.",
+        "en": "Good, thanks."
+      }
+    },
+    {
+      "id": 27,
+      "rank": 27,
+      "unit": 3,
+      "form": "f",
+      "pair": 26,
+      "ar": "مْنِيحَة",
+      "en": "good / fine (feminine)",
+      "pos": "adjective",
+      "note": "A woman answers مْنِيحَة about herself. The ة ending is the ordinary way to make an adjective feminine.",
+      "example": {
+        "ar": "الْأَكْلِة مْنِيحَة.",
+        "en": "The dish is good."
+      }
+    },
+    {
+      "id": 28,
+      "rank": 28,
+      "unit": 3,
+      "ar": "شُكْراً",
+      "en": "thank you",
+      "pos": "greeting",
+      "note": "The ـاً ending is pronounced as an -an. Strengthen it with كْتِير: شُكْراً كْتِير.",
+      "example": {
+        "ar": "شُكْراً كْتِير.",
+        "en": "Thank you very much."
+      }
+    },
+    {
+      "id": 29,
+      "rank": 29,
+      "unit": 3,
+      "ar": "عَفْواً",
+      "en": "you're welcome / excuse me",
+      "pos": "greeting",
+      "note": "Answers شُكْراً, and also gets someone's attention politely.",
+      "example": {
+        "ar": "عَفْواً، وَيْن الطَّرِيق؟",
+        "en": "Excuse me, where's the road?"
+      }
+    },
+    {
+      "id": 30,
+      "rank": 30,
+      "unit": 3,
+      "ar": "مَعْ السَّلَامِة",
+      "en": "goodbye",
+      "pos": "greeting",
+      "note": "Literally 'with safety'. Said to the person leaving; they answer بْخَاطْرَك.",
+      "example": {
+        "ar": "مَعْ السَّلَامِة، بْشُوفَك بُكْرَا.",
+        "en": "Goodbye, I'll see you tomorrow."
+      }
+    },
+    {
+      "id": 31,
+      "rank": 31,
+      "unit": 4,
+      "ar": "فِي",
+      "en": "there is / there are",
+      "pos": "existential",
+      "note": "Negate it with مَا: مَا فِي — 'there isn't', and by extension 'we're out of it'.",
+      "example": {
+        "ar": "فِي مَي بِالْبَيْت؟",
+        "en": "Is there water at home?"
+      }
+    },
+    {
+      "id": 32,
+      "rank": 32,
+      "unit": 4,
+      "ar": "عِنْدِي",
+      "en": "I have",
+      "pos": "verb-like",
+      "note": "Not a verb — it's the preposition 'at' plus an ending. Lebanese has no verb 'to have' at all.",
+      "example": {
+        "ar": "عِنْدِي وَقِت.",
+        "en": "I have time."
+      }
+    },
+    {
+      "id": 33,
+      "rank": 33,
+      "unit": 4,
+      "form": "m",
+      "pair": 34,
+      "ar": "عِنْدَك",
+      "en": "you have (to a man)",
+      "pos": "verb-like",
+      "example": {
+        "ar": "عِنْدَك وَقِت؟",
+        "en": "Do you have time?"
+      }
+    },
+    {
+      "id": 34,
+      "rank": 34,
+      "unit": 4,
+      "form": "f",
+      "pair": 33,
+      "ar": "عِنْدِك",
+      "en": "you have (to a woman)",
+      "pos": "verb-like",
+      "note": "Careful: عِنْدِك 'you (f) have' and عِنْدِي 'I have' differ only in the last letter.",
+      "example": {
+        "ar": "عِنْدِك وَقِت؟",
+        "en": "Do you have time?"
+      }
+    },
+    {
+      "id": 35,
+      "rank": 35,
+      "unit": 4,
+      "ar": "بَدِّي",
+      "en": "I want",
+      "pos": "verb-like",
+      "note": "Also carries 'I'm going to' for the future. Put a verb straight after it: بَدِّي رُوح — 'I want to go'.",
+      "example": {
+        "ar": "بَدِّي مَي.",
+        "en": "I want water."
+      }
+    },
+    {
+      "id": 36,
+      "rank": 36,
+      "unit": 4,
+      "form": "m",
+      "pair": 37,
+      "ar": "بَدَّك",
+      "en": "you want (to a man)",
+      "pos": "verb-like",
+      "example": {
+        "ar": "شُو بَدَّك؟",
+        "en": "What do you want?"
+      }
+    },
+    {
+      "id": 37,
+      "rank": 37,
+      "unit": 4,
+      "form": "f",
+      "pair": 36,
+      "ar": "بَدِّك",
+      "en": "you want (to a woman)",
+      "pos": "verb-like",
+      "note": "Fatha for him, kasra for her — the pattern is now familiar.",
+      "example": {
+        "ar": "شُو بَدِّك؟",
+        "en": "What do you want?"
+      }
+    },
+    {
+      "id": 38,
+      "rank": 38,
+      "unit": 4,
+      "ar": "لَازِم",
+      "en": "must / have to",
+      "pos": "modal",
+      "note": "Never changes for person. Just put the verb after it: لَازِم رُوح — 'I have to go'.",
+      "example": {
+        "ar": "لَازِم رُوح هَلَّق.",
+        "en": "I have to go now."
+      }
+    },
+    {
+      "id": 39,
+      "rank": 39,
+      "unit": 4,
+      "ar": "فِينِي",
+      "en": "I can",
+      "pos": "verb-like",
+      "note": "Built like عِنْدِي — 'in me'. فِيك is 'you can' to a man, فِيكِ to a woman.",
+      "example": {
+        "ar": "فِينِي سَاعْدَك.",
+        "en": "I can help you."
+      }
+    },
+    {
+      "id": 40,
+      "rank": 40,
+      "unit": 4,
+      "ar": "مُمْكِن",
+      "en": "maybe / is it possible",
+      "pos": "modal",
+      "note": "Turns any sentence into a polite request: مُمْكِن مَي؟ — 'Could I have some water?'",
+      "example": {
+        "ar": "مُمْكِن سُؤَال؟",
+        "en": "May I ask a question?"
+      }
+    },
+    {
+      "id": 41,
+      "rank": 41,
+      "unit": 5,
+      "ar": "بَعْرِف",
+      "en": "I know",
+      "pos": "verb",
+      "note": "The بـ on the front marks an ordinary present tense — every verb in this unit carries it.",
+      "example": {
+        "ar": "مَا بَعْرِف شُو صَار.",
+        "en": "I don't know what happened."
+      }
+    },
+    {
+      "id": 42,
+      "rank": 42,
+      "unit": 5,
+      "ar": "بْحِبّ",
+      "en": "I like / I love",
+      "pos": "verb",
+      "note": "Covers both. بْحِبَّك is 'I love you' — the same ـَك ending as in كِيفَك.",
+      "example": {
+        "ar": "بْحِبّ الْقَهْوِة.",
+        "en": "I like coffee."
+      }
+    },
+    {
+      "id": 43,
+      "rank": 43,
+      "unit": 5,
+      "ar": "بْشُوف",
+      "en": "I see",
+      "pos": "verb",
+      "example": {
+        "ar": "بْشُوفَك بُكْرَا.",
+        "en": "I'll see you tomorrow."
+      }
+    },
+    {
+      "id": 44,
+      "rank": 44,
+      "unit": 5,
+      "ar": "بِسْمَع",
+      "en": "I hear / I listen",
+      "pos": "verb",
+      "example": {
+        "ar": "مَا بِسْمَع مْنِيح.",
+        "en": "I can't hear well."
+      }
+    },
+    {
+      "id": 45,
+      "rank": 45,
+      "unit": 5,
+      "ar": "بْقُول",
+      "en": "I say",
+      "pos": "verb",
+      "pron": "Another ق — the throat catch, so this sounds closer to 'b'ool'.",
+      "example": {
+        "ar": "شُو بْقُول؟",
+        "en": "What should I say?"
+      }
+    },
+    {
+      "id": 46,
+      "rank": 46,
+      "unit": 5,
+      "ar": "بِفْهَم",
+      "en": "I understand",
+      "pos": "verb",
+      "note": "مَا بِفْهَم is the sentence that buys you a repeat, slower.",
+      "example": {
+        "ar": "مَا بِفْهَم، مُمْكِن كَمَان مَرّة؟",
+        "en": "I don't understand, could you repeat?"
+      }
+    },
+    {
+      "id": 47,
+      "rank": 47,
+      "unit": 5,
+      "ar": "بِحْكِي",
+      "en": "I speak / I talk",
+      "pos": "verb",
+      "note": "Lebanese uses بِحْكِي where MSA would use أَتَكَلَّم. حَكِي on its own means 'talk, speech'.",
+      "example": {
+        "ar": "بِحْكِي عَرَبِي شْوَيّ.",
+        "en": "I speak a little Arabic."
+      }
+    },
+    {
+      "id": 48,
+      "rank": 48,
+      "unit": 5,
+      "ar": "بْرُوح",
+      "en": "I go",
+      "pos": "verb",
+      "example": {
+        "ar": "بْرُوح عَ الْبَيْت.",
+        "en": "I'm going home."
+      }
+    },
+    {
+      "id": 49,
+      "rank": 49,
+      "unit": 5,
+      "ar": "بْجِي",
+      "en": "I come",
+      "pos": "verb",
+      "note": "The command form is تَعَا — 'come!' — which looks nothing like it. Learn both.",
+      "example": {
+        "ar": "بْجِي مَعَك.",
+        "en": "I'll come with you."
+      }
+    },
+    {
+      "id": 50,
+      "rank": 50,
+      "unit": 5,
+      "ar": "بِرْجَع",
+      "en": "I come back / I return",
+      "pos": "verb",
+      "note": "Also means 'again' when stacked on another verb: بِرْجَع بْقُول — 'I say it again'.",
+      "example": {
+        "ar": "هَلَّق بِرْجَع.",
+        "en": "I'll be right back."
+      }
+    },
+    {
+      "id": 51,
+      "rank": 51,
+      "unit": 5,
+      "ar": "بِعْمِل",
+      "en": "I do / I make",
+      "pos": "verb",
+      "example": {
+        "ar": "شُو بِتْعْمِل؟",
+        "en": "What do you do?"
+      }
+    },
+    {
+      "id": 52,
+      "rank": 52,
+      "unit": 5,
+      "ar": "بِشْتِغِل",
+      "en": "I work",
+      "pos": "verb",
+      "note": "From the same root as شَغِل, 'work'. Lebanese loves stacking three short vowels like this.",
+      "example": {
+        "ar": "بِشْتِغِل بْبَيْرُوت.",
+        "en": "I work in Beirut."
+      }
+    },
+    {
+      "id": 53,
+      "rank": 53,
+      "unit": 6,
+      "ar": "بُوكُل",
+      "en": "I eat",
+      "pos": "verb",
+      "example": {
+        "ar": "بُوكُل بَرَّا الْيَوْم.",
+        "en": "I'm eating out today."
+      }
+    },
+    {
+      "id": 54,
+      "rank": 54,
+      "unit": 6,
+      "ar": "بِشْرَب",
+      "en": "I drink",
+      "pos": "verb",
+      "example": {
+        "ar": "بِشْرَب قَهْوِة كُلّ يَوْم.",
+        "en": "I drink coffee every day."
+      }
+    },
+    {
+      "id": 55,
+      "rank": 55,
+      "unit": 6,
+      "ar": "مَي",
+      "en": "water",
+      "pos": "noun",
+      "note": "Feminine, so it takes هَيْدِي. In Lebanon مَي also means running water in the building.",
+      "example": {
+        "ar": "مُمْكِن مَي؟",
+        "en": "Could I have some water?"
+      }
+    },
+    {
+      "id": 56,
+      "rank": 56,
+      "unit": 6,
+      "ar": "أَكِل",
+      "en": "food",
+      "pos": "noun",
+      "note": "Same root as بُوكُل. أَكِل is the food, أَكْلِة is a single dish.",
+      "example": {
+        "ar": "الْأَكِل مْنِيح كْتِير.",
+        "en": "The food is very good."
+      }
+    },
+    {
+      "id": 57,
+      "rank": 57,
+      "unit": 6,
+      "ar": "قَهْوِة",
+      "en": "coffee",
+      "pos": "noun",
+      "pron": "ق as a throat catch, and the ة at the end is a soft -e. Nothing like the written letters suggest.",
+      "example": {
+        "ar": "بَدِّي قَهْوِة، شُكْراً.",
+        "en": "I'd like a coffee, thanks."
+      }
+    },
+    {
+      "id": 58,
+      "rank": 58,
+      "unit": 6,
+      "ar": "خُبِز",
+      "en": "bread",
+      "pos": "noun",
+      "example": {
+        "ar": "فِي خُبِز بِالْبَيْت.",
+        "en": "There's bread at home."
+      }
+    },
+    {
+      "id": 59,
+      "rank": 59,
+      "unit": 6,
+      "ar": "بَيْت",
+      "en": "house / home",
+      "pos": "noun",
+      "note": "بِالْبَيْت means 'at home' — the بِـ prefix is 'in', glued straight onto the word.",
+      "example": {
+        "ar": "بَيْتِي زْغِير بَسّ حِلْو.",
+        "en": "My house is small but nice."
+      }
+    },
+    {
+      "id": 60,
+      "rank": 60,
+      "unit": 6,
+      "ar": "شَغِل",
+      "en": "work / a job",
+      "pos": "noun",
+      "example": {
+        "ar": "عِنْدِي شَغِل كْتِير.",
+        "en": "I have a lot of work."
+      }
+    },
+    {
+      "id": 61,
+      "rank": 61,
+      "unit": 6,
+      "ar": "سَيَّارَة",
+      "en": "car",
+      "pos": "noun",
+      "note": "Feminine. The shadda on the ي doubles it — say the y twice.",
+      "example": {
+        "ar": "سَيَّارْتِي جْدِيدِة.",
+        "en": "My car is new."
+      }
+    },
+    {
+      "id": 62,
+      "rank": 62,
+      "unit": 6,
+      "ar": "مَصَارِي",
+      "en": "money",
+      "pos": "noun",
+      "note": "Always plural in form. The MSA نُقُود is not used in conversation.",
+      "example": {
+        "ar": "مَا مَعِي مَصَارِي.",
+        "en": "I don't have money on me."
+      }
+    },
+    {
+      "id": 63,
+      "rank": 63,
+      "unit": 7,
+      "ar": "وَلَد",
+      "en": "boy / child",
+      "pos": "noun",
+      "note": "The plural وْلَاد covers children of any gender.",
+      "example": {
+        "ar": "الْوَلَد بِالْبَيْت.",
+        "en": "The boy is at home."
+      }
+    },
+    {
+      "id": 64,
+      "rank": 64,
+      "unit": 7,
+      "ar": "بِنْت",
+      "en": "girl / daughter",
+      "pos": "noun",
+      "note": "Also 'daughter' — بِنْتِي is 'my daughter'. Context decides.",
+      "example": {
+        "ar": "الْبِنْت بِالْمَدْرَسِة.",
+        "en": "The girl is at school."
+      }
+    },
+    {
+      "id": 65,
+      "rank": 65,
+      "unit": 7,
+      "ar": "رِجَّال",
+      "en": "man",
+      "pos": "noun",
+      "pron": "The shadda on the ج matters — hold it, or it sounds like رِجَال, 'legs'.",
+      "example": {
+        "ar": "مِين هَيْدَا الرِّجَّال؟",
+        "en": "Who is that man?"
+      }
+    },
+    {
+      "id": 66,
+      "rank": 66,
+      "unit": 7,
+      "ar": "مَرَا",
+      "en": "woman",
+      "pos": "noun",
+      "note": "Also means 'wife' — مَرْتِي is 'my wife'. The plural is نِسْوَان.",
+      "example": {
+        "ar": "هَيْدِي الْمَرَا جَارِتْنَا.",
+        "en": "That woman is our neighbour."
+      }
+    },
+    {
+      "id": 67,
+      "rank": 67,
+      "unit": 7,
+      "ar": "إِمّ",
+      "en": "mother",
+      "pos": "noun",
+      "note": "'My mother' is إِمِّي. Lebanese calls a mother by her eldest child: إِمّ سَامِي — 'Sami's mother'.",
+      "example": {
+        "ar": "إِمِّي بِالْبَيْت.",
+        "en": "My mother is at home."
+      }
+    },
+    {
+      "id": 68,
+      "rank": 68,
+      "unit": 7,
+      "ar": "بَيّ",
+      "en": "father",
+      "pos": "noun",
+      "note": "Distinctly Lebanese — أَب is the MSA word. 'My father' is بَيِّي.",
+      "example": {
+        "ar": "بَيِّي بِيِشْتِغِل هَوْنِيك.",
+        "en": "My father works over there."
+      }
+    },
+    {
+      "id": 69,
+      "rank": 69,
+      "unit": 7,
+      "ar": "أَخ",
+      "en": "brother",
+      "pos": "noun",
+      "note": "'My brother' is خَيِّي — the word reshapes itself when you add the ending.",
+      "example": {
+        "ar": "خَيِّي أَكْبَر مِنِّي.",
+        "en": "My brother is older than me."
+      }
+    },
+    {
+      "id": 70,
+      "rank": 70,
+      "unit": 7,
+      "ar": "أُخْت",
+      "en": "sister",
+      "pos": "noun",
+      "example": {
+        "ar": "أُخْتِي بْبَيْرُوت.",
+        "en": "My sister is in Beirut."
+      }
+    },
+    {
+      "id": 71,
+      "rank": 71,
+      "unit": 7,
+      "form": "m",
+      "pair": 72,
+      "ar": "صَاحِب",
+      "en": "friend (a man)",
+      "pos": "noun",
+      "note": "رْفِيق is the other common word for a male friend.",
+      "example": {
+        "ar": "هَيْدَا صَاحْبِي.",
+        "en": "This is my friend."
+      }
+    },
+    {
+      "id": 72,
+      "rank": 72,
+      "unit": 7,
+      "form": "f",
+      "pair": 71,
+      "ar": "صَاحْبِة",
+      "en": "friend (a woman)",
+      "pos": "noun",
+      "note": "The ة ending again — the standard way to make a person-word feminine.",
+      "example": {
+        "ar": "هَيْدِي صَاحْبِتِي.",
+        "en": "This is my friend."
+      }
+    },
+    {
+      "id": 73,
+      "rank": 73,
+      "unit": 7,
+      "ar": "عَيْلِة",
+      "en": "family",
+      "pos": "noun",
+      "example": {
+        "ar": "عَيْلِتِي كْبِيرِة.",
+        "en": "My family is big."
+      }
+    },
+    {
+      "id": 74,
+      "rank": 74,
+      "unit": 7,
+      "ar": "نَاس",
+      "en": "people",
+      "pos": "noun",
+      "note": "Always plural, never counted. For a number of people you use أَشْخَاص.",
+      "example": {
+        "ar": "فِي نَاس كْتِير هَوْن.",
+        "en": "There are a lot of people here."
+      }
+    },
+    {
+      "id": 75,
+      "rank": 75,
+      "unit": 8,
       "ar": "هَلَّق",
       "en": "now",
       "pos": "adverb",
-      "tags": ["time", "core"],
-      "note": "The signature Lebanese word for 'now'. هَلَّق بَرْجَع — 'I'll be right back'.",
-      "msa": "الآن",
-      "example": { "ar": "هَلَّق بَرْجَع.", "en": "I'll be right back." }
+      "note": "The signature Lebanese word — a Syrian would say هَلَّأ, an Egyptian دِلْوَقْتِي.",
+      "example": {
+        "ar": "هَلَّق بِرْجَع.",
+        "en": "I'll be right back."
+      }
+    },
+    {
+      "id": 76,
+      "rank": 76,
+      "unit": 8,
+      "ar": "الْيَوْم",
+      "en": "today",
+      "pos": "adverb",
+      "note": "Literally 'the day'. Without the الْـ it just means 'day'.",
+      "example": {
+        "ar": "الْيَوْم عِنْدِي شَغِل.",
+        "en": "I have work today."
+      }
+    },
+    {
+      "id": 77,
+      "rank": 77,
+      "unit": 8,
+      "ar": "بُكْرَا",
+      "en": "tomorrow",
+      "pos": "adverb",
+      "example": {
+        "ar": "بْشُوفَك بُكْرَا.",
+        "en": "I'll see you tomorrow."
+      }
+    },
+    {
+      "id": 78,
+      "rank": 78,
+      "unit": 8,
+      "ar": "مْبَارِح",
+      "en": "yesterday",
+      "pos": "adverb",
+      "note": "Another word that opens on a sukun — start on the م with no vowel.",
+      "example": {
+        "ar": "مْبَارِح كِنِت هَوْنِيك.",
+        "en": "I was there yesterday."
+      }
+    },
+    {
+      "id": 79,
+      "rank": 79,
+      "unit": 8,
+      "ar": "بَعْدَيْن",
+      "en": "later / afterwards",
+      "pos": "adverb",
+      "note": "بْشُوفَك بَعْدَيْن ends a conversation without committing to a time.",
+      "example": {
+        "ar": "مْنِحْكِي بَعْدَيْن.",
+        "en": "We'll talk later."
+      }
+    },
+    {
+      "id": 80,
+      "rank": 80,
+      "unit": 8,
+      "ar": "دَايْماً",
+      "en": "always",
+      "pos": "adverb",
+      "example": {
+        "ar": "دَايْماً بِشْرَب قَهْوِة الصُّبِح.",
+        "en": "I always drink coffee in the morning."
+      }
+    },
+    {
+      "id": 81,
+      "rank": 81,
+      "unit": 8,
+      "ar": "يَوْم",
+      "en": "day",
+      "pos": "noun",
+      "note": "كُلّ يَوْم — 'every day'. The plural is أَيَّام.",
+      "example": {
+        "ar": "كُلّ يَوْم نَفْس الشِّي.",
+        "en": "Every day the same thing."
+      }
+    },
+    {
+      "id": 82,
+      "rank": 82,
+      "unit": 8,
+      "ar": "سَاعَة",
+      "en": "hour / clock / watch",
+      "pos": "noun",
+      "note": "All three meanings at once. قَدِّيش السَّاعَة؟ is 'what time is it?'",
+      "example": {
+        "ar": "بَعْد سَاعَة بْكُون هَوْن.",
+        "en": "I'll be here in an hour."
+      }
+    },
+    {
+      "id": 83,
+      "rank": 83,
+      "unit": 8,
+      "ar": "أُسْبُوع",
+      "en": "week",
+      "pos": "noun",
+      "example": {
+        "ar": "الْأُسْبُوع الْجَايِي.",
+        "en": "Next week."
+      }
+    },
+    {
+      "id": 84,
+      "rank": 84,
+      "unit": 8,
+      "ar": "شَهِر",
+      "en": "month",
+      "pos": "noun",
+      "note": "Lebanese usually names months by number: شَهْر تْلَاتِة — 'March'.",
+      "example": {
+        "ar": "مِن شَهِر مَا شِفْتَك.",
+        "en": "I haven't seen you in a month."
+      }
+    },
+    {
+      "id": 85,
+      "rank": 85,
+      "unit": 8,
+      "ar": "سِنِة",
+      "en": "year",
+      "pos": "noun",
+      "example": {
+        "ar": "مِن سِنِة بْبَيْرُوت.",
+        "en": "In Beirut for a year now."
+      }
+    },
+    {
+      "id": 86,
+      "rank": 86,
+      "unit": 8,
+      "ar": "وَقِت",
+      "en": "time",
+      "pos": "noun",
+      "pron": "ق again — closer to 'wa'et' than 'waqt'.",
+      "example": {
+        "ar": "مَا عِنْدِي وَقِت.",
+        "en": "I don't have time."
+      }
+    },
+    {
+      "id": 87,
+      "rank": 87,
+      "unit": 9,
+      "ar": "كْتِير",
+      "en": "a lot / very",
+      "pos": "adverb",
+      "note": "Goes after what it describes: مْنِيح كْتِير — 'very good'. Never before.",
+      "example": {
+        "ar": "شُكْراً كْتِير.",
+        "en": "Thanks a lot."
+      }
+    },
+    {
+      "id": 88,
+      "rank": 88,
+      "unit": 9,
+      "ar": "شْوَيّ",
+      "en": "a little",
+      "pos": "adverb",
+      "note": "شْوَيّ شْوَيّ means 'slowly, little by little' — you will hear it constantly.",
+      "example": {
+        "ar": "بِحْكِي عَرَبِي شْوَيّ.",
+        "en": "I speak a little Arabic."
+      }
+    },
+    {
+      "id": 89,
+      "rank": 89,
+      "unit": 9,
+      "ar": "كْبِير",
+      "en": "big / old (masculine)",
+      "pos": "adjective",
+      "note": "Of a person it means 'older'. Feminine كْبِيرِة.",
+      "example": {
+        "ar": "الْبَيْت كْبِير.",
+        "en": "The house is big."
+      }
+    },
+    {
+      "id": 90,
+      "rank": 90,
+      "unit": 9,
+      "ar": "زْغِير",
+      "en": "small / young (masculine)",
+      "pos": "adjective",
+      "note": "Feminine زْغِيرِة. Lebanese uses ز where MSA has ص in صَغِير.",
+      "example": {
+        "ar": "بَيْتِي زْغِير.",
+        "en": "My house is small."
+      }
+    },
+    {
+      "id": 91,
+      "rank": 91,
+      "unit": 9,
+      "form": "m",
+      "pair": 92,
+      "ar": "حِلْو",
+      "en": "nice / sweet / pretty (masculine)",
+      "pos": "adjective",
+      "note": "Stretches over anything pleasant — food, weather, a person, an idea.",
+      "example": {
+        "ar": "الطَّقِس حِلْو الْيَوْم.",
+        "en": "The weather is nice today."
+      }
+    },
+    {
+      "id": 92,
+      "rank": 92,
+      "unit": 9,
+      "form": "f",
+      "pair": 91,
+      "ar": "حِلْوِة",
+      "en": "nice / sweet / pretty (feminine)",
+      "pos": "adjective",
+      "note": "Said of a woman it means 'pretty'; of a thing, 'lovely'.",
+      "example": {
+        "ar": "الْفِكْرَة حِلْوِة.",
+        "en": "That's a nice idea."
+      }
+    },
+    {
+      "id": 93,
+      "rank": 93,
+      "unit": 9,
+      "ar": "جْدِيد",
+      "en": "new (masculine)",
+      "pos": "adjective",
+      "note": "Feminine جْدِيدِة. The opposite is قْدِيم.",
+      "example": {
+        "ar": "هَيْدَا شَغِل جْدِيد.",
+        "en": "This is a new job."
+      }
+    },
+    {
+      "id": 94,
+      "rank": 94,
+      "unit": 9,
+      "ar": "تَعْبَان",
+      "en": "tired (masculine)",
+      "pos": "adjective",
+      "note": "Feminine تَعْبَانِة. Also the polite way to say someone is unwell.",
+      "example": {
+        "ar": "أَنَا تَعْبَان كْتِير الْيَوْم.",
+        "en": "I'm very tired today."
+      }
+    },
+    {
+      "id": 95,
+      "rank": 95,
+      "unit": 10,
+      "ar": "وَ",
+      "en": "and",
+      "pos": "connector",
+      "note": "Written glued to the next word, never standing alone: أَنَا وَإِنْتَ.",
+      "example": {
+        "ar": "أَنَا وَإِنْتَ.",
+        "en": "You and I."
+      }
+    },
+    {
+      "id": 96,
+      "rank": 96,
+      "unit": 10,
+      "ar": "بَسّ",
+      "en": "but / only",
+      "pos": "connector",
+      "note": "Both meanings, told apart by position: بَسّ at the front of a clause is 'but', after a word it is 'only'.",
+      "example": {
+        "ar": "زْغِير بَسّ حِلْو.",
+        "en": "Small but nice."
+      }
+    },
+    {
+      "id": 97,
+      "rank": 97,
+      "unit": 10,
+      "ar": "لَأَنّ",
+      "en": "because",
+      "pos": "connector",
+      "note": "The answer to لَيْش. Often shortened to لَأَنّو in speech.",
+      "example": {
+        "ar": "مَا بْجِي لَأَنّ عِنْدِي شَغِل.",
+        "en": "I'm not coming because I have work."
+      }
+    },
+    {
+      "id": 98,
+      "rank": 98,
+      "unit": 10,
+      "ar": "مِن",
+      "en": "from",
+      "pos": "preposition",
+      "example": {
+        "ar": "أَنَا مِن بَيْرُوت.",
+        "en": "I'm from Beirut."
+      }
+    },
+    {
+      "id": 99,
+      "rank": 99,
+      "unit": 10,
+      "ar": "مَعْ",
+      "en": "with",
+      "pos": "preposition",
+      "note": "مَعِي 'with me' also means 'I have on me' — for things in your pocket rather than things you own.",
+      "example": {
+        "ar": "تَعَا مَعِي.",
+        "en": "Come with me."
+      }
+    },
+    {
+      "id": 100,
+      "rank": 100,
+      "unit": 10,
+      "ar": "كَمَان",
+      "en": "also / too / again",
+      "pos": "adverb",
+      "note": "كَمَان مَرّة — 'one more time' — is how you ask for a repeat.",
+      "example": {
+        "ar": "أَنَا كَمَان بَدِّي رُوح.",
+        "en": "I want to go too."
+      }
     }
   ]
 }

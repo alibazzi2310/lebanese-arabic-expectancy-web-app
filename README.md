@@ -1,11 +1,13 @@
 # Lebanese Arabic — Expectancy List
 
-A vertical, swipe-through drill for the most frequent words of spoken Lebanese
-Arabic. Arabic script only, with vowel marks instead of transliteration. Static
-site, no build step, no backend — it runs on GitHub Pages as-is.
+A vertical, swipe-through drill for the 100 most useful words of spoken
+Lebanese Arabic. Fully vowelled Arabic script, no transliteration anywhere.
+Static site, no build step, no backend — it runs on GitHub Pages as-is.
 
-**Status: proof of concept.** 10 of a planned 1000 words are in
-`data/words.json`, enough to feel the interaction before the list is written.
+All 100 words are written, in `data/words.json`. Masculine and feminine forms
+count as separate words, because they are separate things to memorize:
+إِنْتَ and إِنْتِ are two cards, scheduled independently, and each one says on its
+face which it is.
 
 ## How it works
 
@@ -18,7 +20,7 @@ scrolling, tap to reveal. Underneath it is not a playlist but a scheduler.
 - **The order is the curriculum.** Words are served by `rank`, which is
   frequency adjusted for teachability — pronouns and the sentence frames that
   hold them come before nouns you can only use in one context. By word 10 you
-  can build a sentence.
+  can build a sentence; the ten units each add one thing you can newly do.
 - **Answering steers the feed.** *Again* puts the word back about 3 cards
   later; *Got it* moves it 8, 20, 45, 100, 220 cards out as it survives more
   reps. The feed is infinite because reviews are woven into it, so a session
@@ -29,8 +31,14 @@ scrolling, tap to reveal. Underneath it is not a playlist but a scheduler.
 - **Every word carries a sentence.** Isolated words decay; the example gives
   the word a slot to live in, and the note explains the one thing about it
   that trips people up.
+- **Vowel marks do the work transliteration usually does.** Every Arabic
+  string carries full tashkeel — fatha, kasra, damma, sukun, shadda — so a
+  beginner can read a word aloud without ever being shown a Latin spelling.
+  Words whose written form lies about their Lebanese pronunciation (قَدِّيش,
+  قَهْوِة, وَقِت — the ق is a catch in the throat) carry a short pronunciation
+  note instead.
 
-Progress lives in `localStorage` under `leb-expectancy-v1` — nothing leaves
+Progress lives in `localStorage` under `leb-expectancy-v2` — nothing leaves
 the browser, and there is no account.
 
 ### Controls
@@ -41,14 +49,15 @@ the browser, and there is no account.
 | Swipe up | Next word |
 | Swipe right / `2` | Got it |
 | Swipe left / `1` | Again |
-| ⚙ | Vowel marks, English-first, audio, reset |
+| ⚙ | Vowel marks, English-first, reset |
 
 **English first** flips the card into production practice — you produce the
 Arabic from the English, which is much harder and much closer to speaking.
 
-Pronunciation uses the browser's own Arabic speech voice when the device has
-one installed; it is silent rather than wrong when it doesn't. Recorded
-Lebanese audio is the obvious upgrade.
+Turning **vowel marks** off strips the harakat at render time and leaves the
+bare consonant skeleton people actually text in — the same word, read the hard
+way. There is no audio: browser speech voices are Modern Standard and get
+Lebanese wrong, so the app would rather say nothing than teach the wrong sound.
 
 ## Data
 
@@ -56,22 +65,26 @@ Lebanese audio is the obvious upgrade.
 
 ```jsonc
 {
-  "id": 5,              // stable identifier — progress is keyed to it
-  "rank": 5,            // teaching order, drives the feed
-  "unit": 1,            // grouping for future unit/checkpoint UI
-  "ar": "بَدّي",         // Arabic with harakat; the app strips them on demand
-  "en": "I want",
-  "pos": "verb-like",
-  "tags": ["verb", "core", "high-yield"],
+  "id": 3,              // stable identifier — progress is keyed to it
+  "rank": 3,            // teaching order, drives the feed
+  "unit": 1,            // one of ten units, each a thing you can newly do
+  "ar": "إِنْتِ",          // full tashkeel; the app strips it on demand
+  "en": "you (speaking to a woman)",
+  "pos": "pronoun",
+  "form": "f",          // optional — renders as a masculine/feminine badge
+  "pair": 2,            // optional — the id of the opposite-gender form
   "note": "…",          // the grammar point worth knowing
-  "msa": "أُريد",         // MSA equivalent, for learners coming from Fusha
-  "example": { "ar": "بَدّي مَي.", "en": "I want water." }
+  "pron": "…",          // optional — only when the spelling misleads
+  "example": { "ar": "إِنْتِ مِن وَيْن؟", "en": "Where are you from?" }
 }
 ```
 
 Harakat are stored once and removed at render time when the toggle is off, so
 there is a single source of truth per word. `id` is what progress is keyed to
-— reordering `rank` later will not reset anyone's history.
+— reordering `rank` later will not reset anyone's history. `form` and `pair`
+are what make a gendered pair two words rather than one word with a slash:
+each is scheduled on its own, and `pair` keeps the link for a future
+side-by-side view.
 
 ## Running it
 
